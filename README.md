@@ -7,3 +7,5 @@
 * marriage: 結婚線、2人のpersonのcolumnを指定する。
 * child: 子供線、親の間のcolumn（親が2と4なら3を入れる）と子のcolumnを入れる。
 * child_single_person: 片親のみの子供線
+
+![サンプル図](sample.png)

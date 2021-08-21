@@ -3,8 +3,10 @@ const person_height = 60;
 const person_x = 80;
 const person_y = 100;
 
-function person(row, column) {
+function person(row, column, name, message) {
     rect(row, column);
+    text_name(row, column, name);
+    text_attr(row, column, message);
 }
 
 function marriage(row, column_1, column_2) {
@@ -88,4 +90,28 @@ function line(x1, y1, x2, y2) {
     line.setAttribute('stroke-linejoin', 'round');
     line.setAttribute('stroke-width', '1');
     document.querySelector('svg.family_tree').appendChild(line);
+}
+
+function text_name(row, column, name) {
+    let text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', column * person_x + person_width / 2);
+    text.setAttribute('y', row * person_y + person_height / 2);
+    text.setAttribute('fill', '#000');
+    text.setAttribute('stroke', 'none');
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('dominant-baseline', 'central');
+    text.innerHTML = name;
+    document.querySelector('svg.family_tree').appendChild(text);
+}
+
+function text_attr(row, column, message) {
+    let text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', column * person_x);
+    text.setAttribute('y', row * person_y + person_height);
+    text.setAttribute('font-size', 12);
+    text.setAttribute('fill', '#000');
+    text.setAttribute('stroke', 'none');
+    text.setAttribute('dominant-baseline', 'text-before-edge');
+    text.innerHTML = message;
+    document.querySelector('svg.family_tree').appendChild(text);
 }
